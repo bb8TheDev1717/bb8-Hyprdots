@@ -1,0 +1,93 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-direct",
+    "source": "/home/user/.config/fastfetch/pusheen.png",
+    "width": 25,
+    "height": 16,
+    "padding": {
+      "top": 0,
+      "left": 1
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "constants": [
+      "\u001b[38;2;232;224;255m\u001b[1m",
+      "\u001b[38;2;212;197;254m\u001b[1m",
+      "\u001b[38;2;196;181;253m\u001b[1m",
+      "\u001b[38;2;179;157;251m\u001b[1m",
+      "\u001b[38;2;167;139;250m\u001b[1m",
+      "\u001b[38;2;124;92;219m\u001b[1m"
+    ]
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "custom",
+      "format": "{$1}\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e"
+    },
+    {
+      "type": "os",
+      "key": "{$1}\u2502  Distro",
+      "format": "{name} {version-id}"
+    },
+    {
+      "type": "command",
+      "key": "{$2}\u2502  Kernel",
+      "text": "uname -r | sed s/-dist-bin//"
+    },
+    {
+      "type": "shell",
+      "key": "{$3}\u2502  Shell "
+    },
+    {
+      "type": "cpu",
+      "key": "{$3}\u2502  CPU   ",
+      "format": "{name} ({cores-logical})"
+    },
+    {
+      "type": "gpu",
+      "key": "{$4}\u2502  GPU   ",
+      "format": "{name}"
+    },
+    {
+      "type": "memory",
+      "key": "{$4}\u2502  RAM   "
+    },
+    {
+      "type": "swap",
+      "key": "{$5}\u2502  Swap  "
+    },
+    {
+      "type": "packages",
+      "key": "{$5}\u2502  Pkgs  ",
+      "format": "{pacman} (pacman)"
+    },
+    {
+      "type": "uptime",
+      "key": "{$6}\u2502  Uptime"
+    },
+    {
+      "type": "command",
+      "key": "{$6}\u2502  Since ",
+      "text": "date -d @$(stat -c %W /) +\"%d.%m.%Y\""
+    },
+    {
+      "type": "custom",
+      "format": "{$1}\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+    },
+    "break"
+  ]
+}

@@ -1,0 +1,16 @@
+hl.on("hyprland.start", function()
+    hl.exec_cmd("quickshell")
+    hl.exec_cmd("python3 ~/.config/hypr/scripts/ws-tracker.py &")
+    hl.exec_cmd("xhost +local:")
+    hl.exec_cmd("hyprpolkitagent")
+    hl.exec_cmd("hyprctl setcursor Adwaita 24")
+    -- Clipboard history
+    hl.exec_cmd("wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("wl-paste --type image --watch cliphist store")
+    -- Portals (screenshare, links)
+    hl.exec_cmd("sleep 2 && /usr/lib/xdg-desktop-portal-hyprland")
+    hl.exec_cmd("sleep 4 && /usr/lib/xdg-desktop-portal")
+    -- Wallpaper
+    hl.exec_cmd("awww-daemon")
+    hl.exec_cmd("sleep 1 && awww img \"$(cat ~/.config/hypr/wallpaper.conf)\" --transition-type fade")
+end)
