@@ -202,7 +202,10 @@ PanelWindow {
     Rectangle {
         id: panel
         width: 560
-        height: 76 + Math.min(6, Math.max(1, appsModel.count)) * 46
+        // Explicit sum instead of relying on ColumnLayout implicitHeight (which
+        // doesn't reliably reflect list.height changes): margins(36) + search
+        // row(28) + spacing(12) + divider(1) + spacing(12) + list.height.
+        height: 89 + list.height
         anchors.centerIn: parent
         radius: 18
         color: Qt.rgba(0x0D / 255, 0x0D / 255, 0x12 / 255, 0.68)
@@ -223,12 +226,14 @@ PanelWindow {
         MouseArea { anchors.fill: parent; onClicked: (m) => {} }
 
         ColumnLayout {
+            id: col
             anchors.fill: parent
             anchors.margins: 18
             spacing: 12
 
             RowLayout {
                 Layout.fillWidth: true
+                Layout.preferredHeight: 28
                 spacing: 10
                 Text { text: "⌕"; color: C.accent; font.pixelSize: 20 }
                 Text {
@@ -241,12 +246,19 @@ PanelWindow {
                 }
             }
 
-            Rectangle { Layout.fillWidth: true; height: 1; color: C.border }
+            Rectangle { Layout.fillWidth: true; Layout.preferredHeight: 1; color: C.border }
 
             ListView {
                 id: list
                 Layout.fillWidth: true
-                Layout.fillHeight: true
+                // Exact-fit height for the current result count (44 = 42 delegate + 2
+                // spacing), capped at 6 rows. While nothing is typed the list always
+                // shows the full/max height instead of shrinking with the result count.
+                // Must go through Layout.preferredHeight, not raw height — a ColumnLayout
+                // overwrites a child's plain `height` on every relayout pass, which is
+                // exactly what caused the height to snap back after animating correctly.
+                Layout.preferredHeight: (overlay.query.length > 0 ? Math.max(1, Math.min(6, appsModel.count)) : 6) * 44 - 2
+                Behavior on Layout.preferredHeight { NumberAnimation { duration: 180; easing.type: Easing.OutQuad } }
                 clip: true
                 model: appsModel
                 spacing: 2
