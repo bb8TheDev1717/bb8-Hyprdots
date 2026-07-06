@@ -51,6 +51,7 @@ _masters_build_prompt() {
   done
 
   out="${out}${indent}%F{#6B6B8A}└─ %f%F{#7EFCA0}>%f "
+  _masters_last_indent="$indent"
   PROMPT="$out"
 }
 
@@ -65,6 +66,18 @@ _masters_precmd() {
   fi
   _masters_build_prompt
 }
+
+# Transient prompt: once a command is submitted, collapse the whole tree
+# down to just the arrow line + typed command, so scrollback stays compact
+# and only the "live" prompt ever shows the full tree.
+zle-line-finish() {
+  local -a plines
+  plines=("${(@f)PROMPT}")
+  local nlines=${#plines[@]}
+  print -n "\e[$(( nlines > 1 ? nlines - 1 : 0 ))F\e[J"
+  print -rP "${_masters_last_indent}%F{#6B6B8A}└─ %f%F{#7EFCA0}>%f ${BUFFER}"
+}
+zle -N zle-line-finish
 
 add-zsh-hook preexec _masters_preexec
 add-zsh-hook precmd _masters_precmd
