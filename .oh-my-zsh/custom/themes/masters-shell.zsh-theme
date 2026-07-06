@@ -76,7 +76,7 @@ zle-line-finish() {
   local nlines=${#plines[@]}
   print -n "\e[$(( nlines > 1 ? nlines - 1 : 0 ))F\e[J"
   print -rP "%F{#7EFCA0}>%f ${BUFFER}"
-  print -rP "%F{#6B6B8A}output:%f"
+  print -n -rP "%F{#6B6B8A}output:%f"
 }
 zle -N zle-line-finish
 
