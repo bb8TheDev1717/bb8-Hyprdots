@@ -28,6 +28,12 @@ just copy them 1:1, things **will** break or feel wrong until you adjust:
   the prompt (tree-style path breadcrumbs, git branch inline, command
   duration shown after 30s) — set `ZSH_THEME="masters-shell"` and drop
   `masters-shell.zsh-theme` into `~/.oh-my-zsh/custom/themes/`.
+  It's also a **transient prompt**: while you're typing you see the full
+  tree, but once you hit Enter it collapses to just `> <command>` +
+  an `output:` label before the command's actual output, so scrollback
+  doesn't fill up with a repeated 5-line tree per command. This relies on
+  the `zle-line-finish` hook and cursor-movement escape codes — tested in
+  Kitty, should work in any terminal with standard ANSI cursor support.
 - **Colors**: the palette lives in `~/.config/quickshell/colors.js` and is
   mirrored manually in `~/.config/hypr/colors.conf` and the Kitty theme —
   if you want different colors, you need to update all three.

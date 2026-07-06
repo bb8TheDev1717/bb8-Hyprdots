@@ -34,7 +34,7 @@ _masters_build_prompt() {
   local start=1
   (( total > MASTERS_MAX_SEGMENTS )) && start=$(( total - MASTERS_MAX_SEGMENTS + 1 ))
 
-  local out=$'%B%F{#A78BFA}Masters-Shell%f%b\n'
+  local out=$'\n%B%F{#A78BFA}Masters-Shell%f%b\n'
   local indent="" accum="/" seg line i=1
 
   for seg in "${parts[@]}"; do
