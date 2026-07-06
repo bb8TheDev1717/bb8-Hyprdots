@@ -18,7 +18,7 @@ just copy them 1:1, things **will** break or feel wrong until you adjust:
   and muscle memory. Go through them and rebind to your own taste.
 - **Autostart / scripts** (`~/.config/hypr/autostart.lua`,
   `~/.config/hypr/scripts/`): may reference apps or paths that only exist
-  on my machine (e.g. AUR helper scripts). Check before relying on them.
+  on my machine. Check before relying on them.
 - **cava audio source** (`~/.config/cava/config`): input method defaults
   to auto-detecting pulse/pipewire — if your audio backend differs, set
   `method`/`source` under `[input]` yourself.
@@ -59,9 +59,9 @@ Manual installs (not in pacman):
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) — cloned to `~/.oh-my-zsh`
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab) — optional, `.zshrc` sources it
   from `~/.local/share/zsh/fzf-tab` if present, skipped otherwise
-- `Sweet-cursors` cursor theme (set in `~/.config/hypr/env.lua`) — grab it
-  from the AUR or wherever you like, or change the env vars to any cursor
-  theme you already have
+- `Sweet-cursors` cursor theme (set in `~/.config/hypr/env.lua`) —
+  [click here for cursor](https://store.kde.org/p/1393084/), or change the
+  env vars to any cursor theme you already have
 
 ## What's in here
 

@@ -23,7 +23,6 @@ alias lt="eza --icons --tree --level=2"
 # alias
 alias clauded='claude --dangerously-skip-permissions'
 alias unpack='unar'
-alias aurscan='~/.config/hypr/scripts/AUR-scanner.sh'
 
 [[ -f ~/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh ]] && source ~/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh
 source <(fzf --zsh)
