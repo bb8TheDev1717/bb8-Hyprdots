@@ -1,3 +1,5 @@
+export PATH=~/.npm-global/bin:$PATH
+
 export PATH="$HOME/.local/bin:$PATH"
 
 fastfetch
@@ -24,13 +26,12 @@ alias lt="eza --icons --tree --level=2"
 alias clauded='claude --dangerously-skip-permissions'
 alias unpack='unar'
 
-[[ -f ~/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh ]] && source ~/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh
 source <(fzf --zsh)
 eval "$(zoxide init zsh --cmd cd)"
 
 # Plugins
-[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/share/zsh/site-functions/zsh-autosuggestions.zsh ]] && source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
+[[ -f /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 
 # Wortweise Navigation & Löschen
 WORDCHARS=${WORDCHARS//[-.\/]/}        # -, ., / als Wortgrenzen behandeln (nicht Teil des Wortes)
@@ -47,3 +48,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# export MOONSHOT_API_KEY="..."   # set your own key here if you use one

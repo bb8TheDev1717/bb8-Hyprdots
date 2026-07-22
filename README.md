@@ -37,13 +37,16 @@ just copy them 1:1, things **will** break or feel wrong until you adjust:
 - **Colors**: the palette lives in `~/.config/quickshell/colors.js` and is
   mirrored manually in `~/.config/hypr/colors.conf` and the Kitty theme —
   if you want different colors, you need to update all three.
-- **Arch Linux only**: the package list below uses `pacman`/AUR names and
-  this rice has only ever been run on Arch. If you're on another distro,
-  the configs themselves should mostly still work, but you'll have to
-  find the equivalent packages for your package manager yourself — no
-  guarantee the names or even the packages exist elsewhere.
+- **Distro**: originally built on Arch, currently maintained on **Gentoo**
+  (Portage, **OpenRC/elogind — no systemd**). The configs themselves are
+  distro-agnostic, but if you're on a systemd distro some autostart/session
+  plumbing (dbus session activation, display-manager integration) may work
+  slightly differently than described here. Package names below are given
+  as generic identifiers — translate them to your package manager
+  (`pacman`, `emerge`, `apt`, ...) yourself; no guarantee the exact names or
+  even all packages exist on every distro.
 
-## Packages (Arch, pacman unless noted)
+## Packages
 
 Core rice:
 ```
@@ -61,7 +64,7 @@ Shell:
 zsh eza fzf zoxide git zsh-autosuggestions zsh-syntax-highlighting
 ```
 
-Manual installs (not in pacman):
+Manual installs (not typically packaged):
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) — cloned to `~/.oh-my-zsh`
 - [fzf-tab](https://github.com/Aloxaf/fzf-tab) — optional, `.zshrc` sources it
   from `~/.local/share/zsh/fzf-tab` if present, skipped otherwise
@@ -75,7 +78,7 @@ Manual installs (not in pacman):
 .config/hypr/        Hyprland config (monitors, keybinds, window rules, colors)
 .config/quickshell/   Bar/widgets (Qt Quickshell)
 .config/kitty/        Terminal theme
-.config/cava/         Audio visualizer config (lavender→green gradient)
+.config/cava/         Audio visualizer config (lavender gradient)
 .config/fastfetch/    System info fetch shown on shell startup
 .oh-my-zsh/custom/themes/masters-shell.zsh-theme   Custom tree-style prompt
 .zshrc                Full shell config

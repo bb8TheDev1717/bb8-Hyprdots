@@ -29,7 +29,7 @@ Item {
         anchors.margins: 20
         spacing: 16
 
-        // Hero: wallpaper filling the whole free area, with "Hallo there" +
+        // Hero: wallpaper filling the whole free area, with "Hallo!" +
         // hostname overlaid at the bottom (scrim behind for legibility).
         Rectangle {
             Layout.fillWidth: true
@@ -76,7 +76,7 @@ Item {
                 spacing: 2
                 Text {
                     font.family: "Noto Sans"
-                    text: "Hallo there"
+                    text: "Hallo!"
                     color: "white"
                     font.pixelSize: 20
                     font.weight: Font.Bold

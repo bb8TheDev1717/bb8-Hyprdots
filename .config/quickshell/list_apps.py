@@ -51,6 +51,17 @@ def resolve_icon(icon):
     return result
 
 
+HIDDEN_NAMES = {
+    "bluetooth adapters",
+    "bluetooth manager",
+    "btop++",
+    "manage printing",
+    "qt assistant",
+    "qt d-bus viewer",
+    "qt linguist",
+    "wpa_gui",
+}
+
 seen_ids = set()
 seen_names = set()
 entries = []
@@ -80,6 +91,8 @@ for d in dirs:
         if not name or not exec_:
             continue
         key = name.lower()
+        if key in HIDDEN_NAMES:
+            continue
         if key in seen_names:
             continue
         seen_names.add(key)

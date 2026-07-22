@@ -1,5 +1,5 @@
 -- ~/.config/hypr/hyprland.lua
--- My Hyprland Config
+-- bb8-Hyprdots
 
 require("monitors")
 require("env")
@@ -72,15 +72,15 @@ hl.config({ animations = { enabled = true } })
 hl.curve("ease",      { type = "bezier", points = { {0.25, 0.1}, {0.25, 1.0} } })
 hl.curve("overshoot", { type = "bezier", points = { {0.05, 0.9}, {0.1,  1.05} } })
 hl.curve("quick",     { type = "bezier", points = { {0.15, 0},   {0.1,  1}   } })
-hl.curve("easy",      { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
+hl.curve("easy",      { type = "spring", mass = 1, stiffness = 878.5, dampening = 59.29 })
 
 hl.animation({ leaf = "global",     enabled = true, speed = 10,  bezier = "default" })
 hl.animation({ leaf = "windows",    enabled = true, speed = 5,   spring = "easy" })
-hl.animation({ leaf = "windowsIn",  enabled = true, speed = 4,   spring = "easy",  style = "popin 87%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.5, bezier = "quick", style = "popin 87%" })
+hl.animation({ leaf = "windowsIn",  enabled = true, speed = 4,   spring = "easy",  style = "slide bottom" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.5, bezier = "quick", style = "slide top" })
 hl.animation({ leaf = "border",     enabled = true, speed = 5,   bezier = "ease" })
 hl.animation({ leaf = "fade",       enabled = true, speed = 4,   bezier = "quick" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3,   bezier = "ease",  style = "slide" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3,   bezier = "ease",  style = "slidevert" })
 
 -- ─── Layouts ─────────────────────────────────────────────────────────────────
 hl.config({
@@ -100,5 +100,6 @@ hl.config({
         disable_splash_rendering = true,
         mouse_move_enables_dpms  = true,
         key_press_enables_dpms   = true,
+        background_color         = "rgba(0D0D12ff)",
     },
 })

@@ -73,7 +73,7 @@
     {
       "type": "packages",
       "key": "{$5}\u2502  Pkgs  ",
-      "format": "{pacman} (pacman)"
+      "format": "{emerge} (emerge)"
     },
     {
       "type": "uptime",
